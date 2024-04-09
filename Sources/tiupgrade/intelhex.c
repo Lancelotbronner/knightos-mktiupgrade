@@ -6,7 +6,7 @@
 
 /* This is not suitable as a generic intel hex data formatting tool */
 
-void write_ihex(FILE *file, uint8_t *data, int len, uint16_t relative_address) {
+void write_ihex(FILE *file, uint8_t *data, size_t len, uint16_t relative_address) {
 	int i;
 	for (i = 0; i < len; i += BYTES_PER_PAGE) {
 		uint16_t address = i + relative_address;

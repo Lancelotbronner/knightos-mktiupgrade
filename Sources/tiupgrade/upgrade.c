@@ -33,10 +33,10 @@ uint8_t *create_header(uint8_t key_name, uint8_t major_version, uint8_t minor_ve
 	return header;
 }
 
-void write_upgrade(FILE *file, device_type_t device, int pages[256], uint8_t *os_header, int header_len, uint8_t *os_data, int os_len, uint8_t *signature, int sig_len) {
+void write_upgrade(FILE *file, device_type_t device, int pages[256], uint8_t *os_header, int header_len, uint8_t *os_data, int os_len, uint8_t *signature, size_t sig_len) {
 	/* Header */
 	write_flash_header(file, device);
-	uint32_t l = ftell(file);
+	long l = ftell(file);
 	write_ihex(file, os_header, header_len, 0);
 	fprintf(file, ":00000001FF\r\n");
 	/* OS */
@@ -58,7 +58,7 @@ void write_upgrade(FILE *file, device_type_t device, int pages[256], uint8_t *os
 		fprintf(file, ":00000001FF   -- CONVERT 2.6 --\r\n");
 	}
 	/* Length */
-	uint32_t chars = ftell(file) - l;
+	long chars = ftell(file) - l;
 	fflush(file);
 	fseek(file, l - sizeof(uint32_t), SEEK_SET);
 	fwrite(&chars, sizeof(uint32_t), 1, file);

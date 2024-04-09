@@ -9,7 +9,7 @@
 #endif
 #include <sys/types.h>
 #include "md5.h"
-#include "tommath.h"
+#include <tommath.h>
 #include "ticrypto.h"
 
 void initialize_key(tikey_t *key) {
@@ -57,8 +57,8 @@ uint8_t *sign_os(uint8_t *header, int headerlen, uint8_t *data, int datalen, tik
 }
 
 void reverse_endianness(char *str) {
-	int len = strlen(str);
-	int i, j;
+	size_t len = strlen(str);
+	size_t i, j;
 	char u, l;
 	if (len % 2 == 1) {
 		len--;
@@ -76,7 +76,7 @@ void reverse_endianness(char *str) {
 void parse_key(tikey_t *key, char *_str) {
 	char *str = _str;
 	int i;
-	int l = strlen(str);
+	size_t l = strlen(str);
 	for (i = 0; i < l; i++) {
 		if (str[i] == '\n') {
 			str[i] = 0;

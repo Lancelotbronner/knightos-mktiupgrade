@@ -1,4 +1,3 @@
-#include <stdlib.h>
 #include "devices.h"
 
 char *device_type_str(device_type_t type) {
@@ -16,5 +15,5 @@ char *device_type_str(device_type_t type) {
 		case TI84pCSE:
 			return "TI-84+ Color Silver Edition";
 	}
-	return NULL;
+	return 0;
 }

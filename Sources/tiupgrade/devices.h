@@ -1,5 +1,4 @@
-#ifndef DEVICES_H
-#define DEVICES_H
+#pragma once
 
 typedef enum {
     TI73 = 1,
@@ -11,5 +10,3 @@ typedef enum {
 } device_type_t;
 
 char *device_type_str(device_type_t type);
-
-#endif
