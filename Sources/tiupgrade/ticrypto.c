@@ -1,16 +1,19 @@
+#include "ticrypto.h"
+
+#include "md5.h"
+#include <tommath.h>
+
 #include <stdint.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <sys/types.h>
+
 #ifdef _WIN32
 #include <Windows.h>
 #else
 #include <strings.h>
 #endif
-#include <sys/types.h>
-#include "md5.h"
-#include <tommath.h>
-#include "ticrypto.h"
 
 void initialize_key(tikey_t *key) {
 	mp_init(&key->n);

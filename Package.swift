@@ -8,7 +8,7 @@ let package = Package(
 	targets: [
 		.executableTarget(
 			name: "mktiupgrade",
-			dependencies: ["tom", "tiupgrade"]),
+			dependencies: ["tiupgrade"]),
 
 		.target(
 			name: "tom",
