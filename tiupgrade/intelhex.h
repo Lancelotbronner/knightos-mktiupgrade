@@ -1,5 +1,6 @@
 #pragma once
 
+#include <stdint.h>
 #include <stdio.h>
 
 /* This is not suitable as a generic intel hex data formatting tool */

@@ -1,6 +1,6 @@
 include config.mk
 
-SRC = main.c
+SRC = src/main.c
 OBJ = $(SRC:.c=.o)
 CRYPTOOBJ = $(CRYPTO:.c=.o)
 TOMOBJ = $(LIBTOM:.c=.o)
